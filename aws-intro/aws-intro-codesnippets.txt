@@ -1,0 +1,11 @@
+Create a Launch Configuration:
+==============================
+as-create-launch-config --image-id ami-2a31bf1a --instance-type m1.small --region us-west-2 --group <your-security-group> --user-data-file /path/to/user-data-file.txt --key <your-key>
+
+Create a Scaling Group:
+==============================
+as-create-auto-scaling-group <your-group-name> --availability-zones us-west-2a --min-size 1 --max-size 1 --desired-capacity 1 –load-balancers <your-elb>
+
+Update a Scaling Group:
+==============================
+as-update-auto-scaling-group <your-group-name> --max-size 2 --desired-capacity 2 --availability-zone us-west-2a, us-west-2b --launch-configuration <your-launch-config>
